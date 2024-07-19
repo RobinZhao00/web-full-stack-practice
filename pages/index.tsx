@@ -1,6 +1,6 @@
-const Hello = () =>  {
+const hello = () =>  {
   return <>index</>
 }
 
 
-export default Hello
+export default hello

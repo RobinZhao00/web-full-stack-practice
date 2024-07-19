@@ -1,0 +1,6 @@
+{
+  "watch": ["server.mjs", "routes/", "controllers/", "models/", "configs/", "services/"],
+  "ext": "js,mjs,json",
+  "ignore": ["node_modules/"],
+  "exec": "node --experimental-modules server.mjs"
+}
