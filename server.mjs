@@ -6,7 +6,7 @@ import db from "./middlewares/db.mjs";
 import logs from "./middlewares/logs.mjs";
 import router from "./routes/index.mjs";
 
-const app = next({ dev: true, customServer: true });
+const app = next({});
 const handle = app.getRequestHandler();
 const run = async () => {
   try {
@@ -20,12 +20,10 @@ const run = async () => {
     .use(db())
     .use(logs())
     .use(bodyParser())
+    .use(router.preventNext(handle))
     .use(router.routes())
-    .use(router.allowedMethods())
-    .use(async (ctx) => {
-      await handle(ctx.req, ctx.res);
-      ctx.respond = false;
-    });
+    .use(router.allowedMethods());
+
     server.listen(3001, () => {
       console.log("> Ready on http://localhost:3001");
     });

@@ -1,5 +1,8 @@
+// @ts-ignore
 const Hello = ({ data }) => {
-  return <>index{JSON.stringify(data)}22</>;
+  return <div className="hello">
+    index{JSON.stringify(data)}22
+  </div>;
 };
 
 
